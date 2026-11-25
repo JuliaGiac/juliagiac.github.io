@@ -1,4 +1,7 @@
-/* JuliaGiac site styles. Palette from JuliaGiac/.github brand/README.md. */
+/* JuliaGiac site styles, shared by juliagiac.github.io and the project
+   sites (giac, libgiac-julia-wrapper). Keep the copies identical; the
+   reference is JuliaGiac/juliagiac.github.io static/style.css.
+   Palette from JuliaGiac/.github brand/README.md. */
 :root {
   --ink: #222326; --paper: #F5F5F7; --muted: #5f6368;
   --red: #CB3C33; --green: #389826; --purple: #9558B2; --blue: #4063D8;
@@ -80,3 +83,39 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
 
 footer { margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--border);
          color: var(--muted); font-size: .9rem; }
+
+/* Project sites: a compact version of the home page hero */
+.site-header { background: var(--ink); color: var(--paper); padding: 1.6rem 0 0; }
+.site-header a { color: var(--paper); }
+.site-header .top { display: flex; align-items: center; gap: 1.1rem; }
+.site-header .top img { width: 64px; height: 64px; flex: none; }
+.crumbs { margin: 0; font-size: 1.6rem; font-weight: 700; letter-spacing: -.01em; }
+.crumbs a { text-decoration: none; }
+.crumbs .org { color: #a0a4a8; font-weight: 600; }
+.crumbs .sep { color: #6b7076; margin: 0 .35rem; font-weight: 400; }
+.site-header .tagline { margin: .2rem 0 0; color: #c8cbd0; }
+.site-nav { display: flex; flex-wrap: wrap; gap: 0 1.6rem; margin-top: 1.2rem; }
+.site-nav a { text-decoration: none; font-weight: 600; padding: .55rem 0;
+              border-bottom: 3px solid transparent; color: #c8cbd0; }
+.site-nav a:hover { color: var(--paper); }
+.site-nav a[aria-current="page"] { color: var(--paper);
+                                   border-bottom-color: var(--paper); }
+.site-nav .back { margin-left: auto; font-weight: 500; }
+.prose h1 code, .prose h2 code, .prose h3 code { background: none; border: 0;
+                                                padding: 0; font-size: .92em; }
+
+/* Reading pages */
+.prose { max-width: 50rem; margin-top: 2.2rem; }
+.prose h1 { font-size: 2.1rem; margin: 0 0 1rem; letter-spacing: -.01em; }
+.prose h2 { margin-top: 2.4rem; padding-bottom: .3rem;
+            border-bottom: 1px solid var(--border); }
+.prose h3 { margin-top: 1.6rem; }
+.prose li { margin: .2rem 0; }
+.prose table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
+.prose th, .prose td { border: 1px solid var(--border); padding: .45rem .7rem;
+                       text-align: left; vertical-align: top; }
+.prose th { background: var(--card); }
+.prose :not(pre) > code { background: var(--card); border: 1px solid var(--border);
+                          border-radius: 4px; padding: .05rem .3rem; font-size: .9em; }
+.prose blockquote { margin: 1rem 0; padding: .6rem 1rem; background: var(--card);
+                    border-left: 4px solid var(--accent); border-radius: 4px; }
