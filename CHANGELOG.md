@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- The styles and brand images come from
+  [JuliaGiac/site-kit](https://github.com/JuliaGiac/site-kit) (`sync.jl hugo-home`).
+
 ### Added
 
 - Hugo site presenting the layers of the JuliaGiac project: Giac/Xcas

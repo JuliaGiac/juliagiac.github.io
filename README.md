@@ -12,10 +12,10 @@ The site is built with [Hugo](https://gohugo.io/) (no theme) and published by
   change the page.
 - `content/_index.md`: the introduction.
 - `layouts/`, `static/style.css`: the page template and styles.
-- `static/img/`: the logo, favicons and social preview. They are generated
-  in [JuliaGiac/.github](https://github.com/JuliaGiac/.github) (`brand/`);
-  copy them from there rather than editing them here.
-- `static/syntax.css`: code highlighting, from `hugo gen chromastyles`.
+- `static/style.css`, `static/syntax.css`, `static/img/`: the styles, code
+  highlighting and brand images shared with the project sites. They come
+  from [JuliaGiac/site-kit](https://github.com/JuliaGiac/site-kit): edit them
+  there, then run `julia sync.jl hugo-home <this repository>` from the kit.
 
 ```sh
 just serve   # local preview at http://localhost:1313/
