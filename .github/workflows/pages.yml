@@ -41,7 +41,7 @@ jobs:
           hugo --gc --minify --panicOnWarning
           ${{ steps.pages.outputs.base_url && format('--baseURL {0}/', steps.pages.outputs.base_url) || '' }}
       - if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: public
 
