@@ -5,3 +5,9 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
 
 [params]
 description = "The Giac computer algebra system, from its C++ sources to Julia."
+image = "img/social-preview.png"
+
+# Code is highlighted with CSS classes; static/syntax.css holds the light
+# (github) and dark (github-dark) palettes.
+[markup.highlight]
+noClasses = false

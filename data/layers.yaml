@@ -1,6 +1,8 @@
 # The layers of the project, from the upstream C++ sources to the Julia
 # packages. Each layer builds on the one before it.
 - name: Giac / Xcas
+  slug: upstream
+  tech: C++
   role: Upstream computer algebra system
   text: >-
     Free computer algebra system by Bernard Parisse and Renée De Graeve,
@@ -13,6 +15,8 @@
     - {label: "Source tarballs", url: "https://www-fourier.univ-grenoble-alpes.fr/~parisse/giac/"}
     - {label: "Forum", url: "https://xcas.univ-grenoble-alpes.fr/forum/"}
 - name: JuliaGiac/giac
+  slug: build
+  tech: Meson
   role: Giac sources with a Meson build
   text: >-
     The upstream sources with a Meson build on the dev branch, so that
@@ -22,6 +26,8 @@
     - {label: "Site", url: "/giac/"}
     - {label: "Repository", url: "https://github.com/JuliaGiac/giac/tree/dev"}
 - name: GIAC_jll
+  slug: binaries
+  tech: BinaryBuilder
   role: Pre-built libgiac binaries
   text: >-
     libgiac compiled for every Julia platform by BinaryBuilder, from the
@@ -31,6 +37,8 @@
     - {label: "Yggdrasil recipe", url: "https://github.com/JuliaPackaging/Yggdrasil/tree/master/G/GIAC"}
     - {label: "GIAC_jll.jl", url: "https://github.com/JuliaBinaryWrappers/GIAC_jll.jl"}
 - name: libgiac-julia-wrapper
+  slug: bridge
+  tech: CxxWrap.jl
   role: C++ bridge to Julia (libgiac_julia_jll)
   text: >-
     A C++ library that exposes Giac to Julia through CxxWrap.jl: evaluation,
@@ -41,6 +49,8 @@
     - {label: "Repository", url: "https://github.com/JuliaGiac/libgiac-julia-wrapper"}
     - {label: "libgiac_julia_jll.jl", url: "https://github.com/JuliaBinaryWrappers/libgiac_julia_jll.jl"}
 - name: Giac.jl
+  slug: package
+  tech: Julia
   role: The Julia package
   text: >-
     Symbolic computation in Julia with Giac: symbolic expressions and
@@ -50,6 +60,8 @@
     - {label: "Documentation", url: "/Giac.jl/"}
     - {label: "Repository", url: "https://github.com/JuliaGiac/Giac.jl"}
 - name: GiacSlate.jl
+  slug: integration
+  tech: KaimonSlate
   role: Integration with KaimonSlate
   text: >-
     Integrates Giac.jl with KaimonSlate.

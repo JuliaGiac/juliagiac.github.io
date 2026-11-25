@@ -1,32 +1,86 @@
 {{ define "main" }}
-{{ .Content }}
+<header class="hero">
+  <div class="wrap hero-inner">
+    <img class="hero-logo" src="{{ "img/juliagiac-mark-light.svg" | relURL }}" alt="JuliaGiac logo" width="180" height="180">
+    <div>
+      <h1>JuliaGiac</h1>
+      <p class="lead">The <a href="https://www-fourier.univ-grenoble-alpes.fr/~parisse/giac.html">Giac</a>
+      computer algebra system, from its C++ sources to Julia.</p>
+      <p class="actions">
+        <a class="btn primary" href="/Giac.jl/">Get started with Giac.jl</a>
+        <a class="btn" href="https://github.com/JuliaGiac">GitHub</a>
+      </p>
+    </div>
+  </div>
+</header>
 
-<h2>The layers</h2>
-<p class="note">From the upstream C++ sources (1) to the Julia packages.</p>
-<ol class="layers">
-  {{ range hugo.Data.layers }}
-  <li>
-    <h3>{{ .name }} <span class="role">{{ .role }}</span></h3>
-    <p>{{ .text }}</p>
-    <ul class="links">
-      {{ range .links }}<li><a href="{{ .url }}">{{ .label }}</a></li>{{ end }}
+<main class="wrap">
+  <section class="intro">
+    <div>
+      {{ .Content }}
+    </div>
+    <div class="example">
+      <p class="label">Exact results, from Julia</p>
+{{ highlight `using Giac
+using Giac.Commands: factor, integrate, solve
+@giac_var x
+
+factor(x^4 - 1)            # (x-1)*(x+1)*(x^2+1)
+integrate(1/(1+x^2), x)    # atan(x)
+solve(x^2 - 2 ~ 0, x)      # list[-sqrt(2),sqrt(2)]
+integrate(exp(-x^2), x, -Inf, Inf)   # sqrt(pi)` "julia" "" }}
+    </div>
+  </section>
+
+  <section>
+    <h2>From C++ to Julia</h2>
+    <p class="note">Each layer builds on the one below it. Users install the
+    top of the stack; Julia's package manager brings the rest.</p>
+    <ol class="stack" reversed>
+      {{ $layers := hugo.Data.layers }}{{ $n := len $layers }}
+      {{ range seq $n }}{{ with index $layers (sub $n .) }}
+      <li class="layer-{{ .slug }}"><a href="#{{ .slug }}">
+        <span class="name">{{ .name }}</span>
+        <span class="role">{{ .role }}</span>
+        <span class="tech">{{ .tech }}</span>
+      </a></li>
+      {{ end }}{{ end }}
+    </ol>
+  </section>
+
+  <section>
+    <h2>The layers</h2>
+    <div class="cards">
+      {{ range $i, $l := hugo.Data.layers }}
+      <article class="card layer-{{ $l.slug }}" id="{{ $l.slug }}">
+        <p class="step">{{ add $i 1 }} · {{ $l.tech }}</p>
+        <h3>{{ $l.name }}</h3>
+        <p class="role">{{ $l.role }}</p>
+        <p>{{ $l.text }}</p>
+        <ul class="links">
+          {{ range $l.links }}<li><a href="{{ .url }}">{{ .label }}</a></li>{{ end }}
+        </ul>
+      </article>
+      {{ end }}
+    </div>
+  </section>
+
+  <section>
+    <h2>Related</h2>
+    <ul>
+      <li><a href="https://github.com/s-celles/xcas">s-celles/xcas</a>: the Xcas interface sources (work in progress)</li>
+      <li><a href="https://github.com/s-celles/micropython">s-celles/micropython</a>: the MicroPython build used by Giac/Xcas (work in progress)</li>
     </ul>
-  </li>
-  {{ end }}
-</ol>
-
-<h2>Related</h2>
-<ul>
-  <li><a href="https://github.com/s-celles/xcas">s-celles/xcas</a>: the Xcas interface sources (work in progress)</li>
-  <li><a href="https://github.com/s-celles/micropython">s-celles/micropython</a>: the MicroPython build used by Giac/Xcas (work in progress)</li>
-</ul>
+  </section>
+</main>
 {{ end }}
 
 {{ define "footer" }}
-<p>Giac and Xcas are developed by Bernard Parisse and Renée De Graeve at the
+<p>Giac and Xcas are developed by <strong>Bernard Parisse</strong> and
+<strong>Renée De Graeve</strong> at the
 <a href="https://www-fourier.univ-grenoble-alpes.fr/">Institut Fourier</a>,
-Université Grenoble Alpes. JuliaGiac is an independent project; questions
-about Giac itself belong on the
+Université Grenoble Alpes. JuliaGiac is an independent project built on their
+work; questions about Giac itself belong on the
 <a href="https://xcas.univ-grenoble-alpes.fr/forum/">Xcas forum</a>.</p>
 <p><a href="https://github.com/JuliaGiac">github.com/JuliaGiac</a></p>
 {{ end }}

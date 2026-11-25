@@ -12,3 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Hugo site presenting the layers of the JuliaGiac project: Giac/Xcas
   upstream, JuliaGiac/giac, GIAC_jll, libgiac-julia-wrapper, Giac.jl and
   GiacSlate.jl. Published to GitHub Pages by `.github/workflows/pages.yml`.
+- Visual identity: hero with the JuliaGiac mark, favicon, touch icon and
+  social preview image (copied from `brand/assets/` in JuliaGiac/.github).
+- An example of exact results from Julia, a diagram of the layer stack (top
+  of the stack first) and one card per layer.
+- Syntax highlighting with CSS classes, `github` palette in light mode and
+  `github-dark` in dark mode (`static/syntax.css`).
