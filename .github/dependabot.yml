@@ -1,0 +1,12 @@
+# Keeps the GitHub Actions pinned in the Pages workflow current.
+# One PR per action, so a failure is attributable to the action that caused
+# it. Hugo itself is pinned by HUGO_VERSION in pages.yml and is not watched.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(ci)"

@@ -1,0 +1,22 @@
+# Gitallow: deny everything, then allow tracked content explicitly.
+*
+
+!.gitignore
+!README.md
+!CHANGELOG.md
+!justfile
+!hugo.toml
+
+!content/
+!content/**
+!data/
+!data/**
+!layouts/
+!layouts/**
+!static/
+!static/**
+
+!.github/
+!.github/dependabot.yml
+!.github/workflows/
+!.github/workflows/*.yml

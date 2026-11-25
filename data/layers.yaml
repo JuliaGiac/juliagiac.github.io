@@ -1,0 +1,58 @@
+# The layers of the project, from the upstream C++ sources to the Julia
+# packages. Each layer builds on the one before it.
+- name: Giac / Xcas
+  role: Upstream computer algebra system
+  text: >-
+    Free computer algebra system by Bernard Parisse and Renée De Graeve,
+    Institut Fourier (CNRS UMR 5582), Université Grenoble Alpes. Giac is the
+    C++ kernel; Xcas is its interface. GPL-3.0, with a commercial dual
+    license available on request. Everything below builds on this work.
+  links:
+    - {label: "Giac/Xcas home page", url: "https://www-fourier.univ-grenoble-alpes.fr/~parisse/giac.html"}
+    - {label: "Xcas project", url: "https://xcas.univ-grenoble-alpes.fr/"}
+    - {label: "Source tarballs", url: "https://www-fourier.univ-grenoble-alpes.fr/~parisse/giac/"}
+    - {label: "Forum", url: "https://xcas.univ-grenoble-alpes.fr/forum/"}
+- name: JuliaGiac/giac
+  role: Giac sources with a Meson build
+  text: >-
+    The upstream sources with a Meson build on the dev branch, so that
+    BinaryBuilder can cross-compile libgiac for every platform Julia supports.
+    The Meson build is AI-generated. Fixes found here are proposed upstream.
+  links:
+    - {label: "Site", url: "/giac/"}
+    - {label: "Repository", url: "https://github.com/JuliaGiac/giac/tree/dev"}
+- name: GIAC_jll
+  role: Pre-built libgiac binaries
+  text: >-
+    libgiac compiled for every Julia platform by BinaryBuilder, from the
+    JuliaGiac/giac sources, and installed automatically by Julia's package
+    manager.
+  links:
+    - {label: "Yggdrasil recipe", url: "https://github.com/JuliaPackaging/Yggdrasil/tree/master/G/GIAC"}
+    - {label: "GIAC_jll.jl", url: "https://github.com/JuliaBinaryWrappers/GIAC_jll.jl"}
+- name: libgiac-julia-wrapper
+  role: C++ bridge to Julia (libgiac_julia_jll)
+  text: >-
+    A C++ library that exposes Giac to Julia through CxxWrap.jl: evaluation,
+    per-context state, direct function dispatch and typed access to Giac
+    values. Distributed as libgiac_julia_jll, built against GIAC_jll.
+  links:
+    - {label: "Site", url: "/libgiac-julia-wrapper/"}
+    - {label: "Repository", url: "https://github.com/JuliaGiac/libgiac-julia-wrapper"}
+    - {label: "libgiac_julia_jll.jl", url: "https://github.com/JuliaBinaryWrappers/libgiac_julia_jll.jl"}
+- name: Giac.jl
+  role: The Julia package
+  text: >-
+    Symbolic computation in Julia with Giac: symbolic expressions and
+    variables, the full Giac command set, and conversions to and from
+    Symbolics.jl, SymPy.jl, MathJSON.jl and Nemo.jl.
+  links:
+    - {label: "Documentation", url: "/Giac.jl/"}
+    - {label: "Repository", url: "https://github.com/JuliaGiac/Giac.jl"}
+- name: GiacSlate.jl
+  role: Integration with KaimonSlate
+  text: >-
+    Integrates Giac.jl with KaimonSlate.
+  links:
+    - {label: "Site", url: "/GiacSlate.jl/"}
+    - {label: "Repository", url: "https://github.com/JuliaGiac/GiacSlate.jl"}

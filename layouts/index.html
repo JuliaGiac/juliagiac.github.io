@@ -1,0 +1,32 @@
+{{ define "main" }}
+{{ .Content }}
+
+<h2>The layers</h2>
+<p class="note">From the upstream C++ sources (1) to the Julia packages.</p>
+<ol class="layers">
+  {{ range hugo.Data.layers }}
+  <li>
+    <h3>{{ .name }} <span class="role">{{ .role }}</span></h3>
+    <p>{{ .text }}</p>
+    <ul class="links">
+      {{ range .links }}<li><a href="{{ .url }}">{{ .label }}</a></li>{{ end }}
+    </ul>
+  </li>
+  {{ end }}
+</ol>
+
+<h2>Related</h2>
+<ul>
+  <li><a href="https://github.com/s-celles/xcas">s-celles/xcas</a>: the Xcas interface sources (work in progress)</li>
+  <li><a href="https://github.com/s-celles/micropython">s-celles/micropython</a>: the MicroPython build used by Giac/Xcas (work in progress)</li>
+</ul>
+{{ end }}
+
+{{ define "footer" }}
+<p>Giac and Xcas are developed by Bernard Parisse and Renée De Graeve at the
+<a href="https://www-fourier.univ-grenoble-alpes.fr/">Institut Fourier</a>,
+Université Grenoble Alpes. JuliaGiac is an independent project; questions
+about Giac itself belong on the
+<a href="https://xcas.univ-grenoble-alpes.fr/forum/">Xcas forum</a>.</p>
+<p><a href="https://github.com/JuliaGiac">github.com/JuliaGiac</a></p>
+{{ end }}
