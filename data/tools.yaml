@@ -1,0 +1,19 @@
+# Repositories that maintain the project rather than form one of its layers.
+- name: upstream-sync
+  tech: Julia
+  role: Synchronisation with upstream Giac releases
+  text: >-
+    Imports each release tarball of Bernard Parisse's Giac onto the main
+    branch of JuliaGiac/giac, prepares the merge into dev (the fork),
+    tags it, and exports the fork's changes for upstream.
+  links:
+    - {label: "Documentation", url: "/upstream-sync/"}
+    - {label: "Repository", url: "https://github.com/JuliaGiac/upstream-sync"}
+- name: site-kit
+  tech: Hugo · Documenter
+  role: Shared look of the project's sites
+  text: >-
+    The JuliaGiac visual identity, generated in Julia, with the styles and
+    templates copied into every site and documentation of the project.
+  links:
+    - {label: "Repository", url: "https://github.com/JuliaGiac/site-kit"}

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- A Tooling section listing upstream-sync and site-kit.
+- CASbench in the Related section.
+
 ### Changed
 
 - The styles and brand images come from
