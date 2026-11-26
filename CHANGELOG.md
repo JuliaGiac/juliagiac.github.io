@@ -7,11 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
-
-- A Tooling section listing upstream-sync and site-kit.
-- CASbench in the Related section.
-
 ### Changed
 
 - The styles and brand images come from
@@ -19,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- A Tooling section listing upstream-sync and site-kit.
+- CASbench in the Related section.
 - Hugo site presenting the layers of the JuliaGiac project: Giac/Xcas
   upstream, JuliaGiac/giac, GIAC_jll, libgiac-julia-wrapper, Giac.jl and
   GiacSlate.jl. Published to GitHub Pages by `.github/workflows/pages.yml`.
